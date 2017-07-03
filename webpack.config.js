@@ -26,7 +26,7 @@ const Common = merge([
             rules: [
                 {
                     test: /\.jsx?$/,
-                    include: [path.join(__dirname, 'src')],
+                    include: [PATHS.src],
                     exclude: /node_modules/,
                     use: 'babel-loader',
                 },
