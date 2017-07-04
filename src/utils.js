@@ -1,3 +1,4 @@
+const storageKey = 'favoritePokemons';
 const baseURL = 'https://pokeapi.co/api/v2/pokemon/';
 const baseSpriteURL = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other-sprites/official-artwork/';
 
@@ -20,21 +21,21 @@ export function getPokemons({ limit, offset, count }) {
 }
 
 export function getFavoritePokemons() {
-    return JSON.parse(sessionStorage.getItem('favoritePokemons')) || [];
+    return JSON.parse(sessionStorage.getItem(storageKey)) || [];
 }
 
 export function setFavoritePokemon(pokemonName) {
-    const favoritePokemons = JSON.parse(sessionStorage.getItem('favoritePokemons')) || [];
+    const favoritePokemons = JSON.parse(sessionStorage.getItem(storageKey)) || [];
 
     favoritePokemons.push(pokemonName);
 
-    sessionStorage.setItem('favoritePokemons', JSON.stringify(favoritePokemons));
+    sessionStorage.setItem(storageKey, JSON.stringify(favoritePokemons));
 }
 
 export function unsetFavoritePokemon(pokemonName) {
     const favoritePokemons = getFavoritePokemons();
 
-    sessionStorage.setItem('favoritePokemons', JSON.stringify(favoritePokemons.filter(item => item !== pokemonName)));
+    sessionStorage.setItem(storageKey, JSON.stringify(favoritePokemons.filter(item => item !== pokemonName))); // eslint-disable-line max-len
 }
 
 export function getPokemonsWithFavorites(pokemons) {
