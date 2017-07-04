@@ -21,6 +21,7 @@
   & .cardMedia {
     flex: 1;
     background-color: #ffdddd;
+    overflow: hidden;
     position: relative;
 
     & div > img {
