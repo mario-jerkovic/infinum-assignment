@@ -1,0 +1,40 @@
+@import "../../pages/variables";
+
+.pokemonImageContainer {
+  padding-bottom: 24px;
+
+  & .pokemonImage {
+    max-width: 300px;
+  }
+}
+
+#pokemonStatsRow {
+  display: flex;
+  position: relative;
+  padding: 10px 15px;
+  margin-bottom: -1px;
+}
+
+.pokemonStatsContainer {
+  font-family: $font-family;
+
+  & .pokemonStatsHeader {
+    @extend #pokemonStatsRow;
+
+    color: $color;
+    background-color: $accent-color;
+  }
+
+  & .pokemonStats {
+    margin: 0;
+    padding-left: 0;
+
+    & .pokemonStatItem {
+      @extend #pokemonStatsRow;
+
+      & :first-child {
+        flex: 1;
+      }
+    }
+  }
+}

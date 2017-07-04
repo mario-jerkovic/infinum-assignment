@@ -3,29 +3,30 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router';
 
+import { capitalize } from '../../utils';
 import {
     Card,
     CardMedia,
     CardContent,
 } from '../../components/Card';
 
+import styles from './style.scss';
+
 function PokemonCard({ name, sprite, favorite, ...other }) {
     return (
         <Card>
-            <CardMedia
-                src={sprite}
-                alt="pokemon-image"
-            />
+            <Link to={`pokemon/${name}`}>
+                <CardMedia
+                    src={sprite}
+                    alt="pokemon-image"
+                />
+            </Link>
             <CardContent
-                title={
-                    <Link to={`pokemon/${name}`}>
-                        {`${name[0].toUpperCase()}${name.slice(1)}`}
-                    </Link>
-                }
+                title={capitalize(name)}
                 icon={
                     <i
                         role="button"
-                        className="material-icons"
+                        className={`material-icons ${styles.favoriteIcon}`}
                         onClick={() => {
                             other.handleFavoriteClick(favorite, name);
                         }}

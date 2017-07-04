@@ -8,6 +8,8 @@ class PokemonList extends React.PureComponent {
     static propTypes = {
         data: PropTypes.arrayOf(PropTypes.object).isRequired,
         fetchPokemons: PropTypes.func.isRequired,
+        setFavoritePokemon: PropTypes.func.isRequired,
+        unsetFavoritePokemon: PropTypes.func.isRequired,
     };
 
     static contextTypes = {
@@ -48,13 +50,11 @@ class PokemonList extends React.PureComponent {
         const { fetchPokemons } = this.props;
 
         return (
-            <div className="row">
-                <div className="col-xs-12 center-xs">
-                    <div className="row">
-                        {this.renderPokemonList()}
-                    </div>
+            <div>
+                <div className="row">
+                    {this.renderPokemonList()}
                 </div>
-                <div className="col-xs-12 center-xs">
+                <div className="center-xs">
                     <button onClick={fetchPokemons}>
                         Show more
                     </button>
@@ -63,12 +63,5 @@ class PokemonList extends React.PureComponent {
         );
     }
 }
-
-PokemonList.propTypes = {
-    data: PropTypes.arrayOf(PropTypes.object).isRequired,
-    fetchPokemons: PropTypes.func.isRequired,
-    setFavoritePokemon: PropTypes.func.isRequired,
-    unsetFavoritePokemon: PropTypes.func.isRequired,
-};
 
 export default PokemonList;

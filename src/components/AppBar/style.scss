@@ -1,6 +1,8 @@
+@import "../../pages/variables";
+
 .app-bar {
-  background-color: #ee1515;
-  color: #FFF;
+  background-color: $accent-color;
+  color: $color;
   width: 100%;
   height: 64px;
   z-index: 100;
@@ -11,7 +13,7 @@
   flex-direction: row;
   align-items: center;
   overflow: hidden;
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: $font-family;
 
   & .left-align {
     flex: 1;

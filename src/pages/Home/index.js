@@ -2,6 +2,7 @@ import React from 'react';
 
 import PokemonList from './PokemonList';
 import * as utils from '../../utils';
+import Loading from '../../components/Loading';
 
 class Home extends React.PureComponent {
 
@@ -58,7 +59,7 @@ class Home extends React.PureComponent {
 
         if (!totalCount) {
             return (
-                <div>Loading...</div>
+                <Loading />
             );
         }
 

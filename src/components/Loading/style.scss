@@ -1,0 +1,29 @@
+@import "../../pages/variables";
+@import "../../pages/mixins";
+
+.ball {
+  @include pokeball();
+}
+
+.loading {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  font-family: $font-family;
+  transition: top 0.2s ease-out;
+
+  & .pokeposition {
+    text-align: center;
+
+    & p {
+      color: $primary-color;
+    }
+  }
+
+  & .ball, & .ball:after, & .ball:before {
+    animation-duration: 6s;
+  }
+}

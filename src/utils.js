@@ -47,6 +47,18 @@ export function getPokemonsWithFavorites(pokemons) {
     }));
 }
 
-export function getPokemonByName() {
+export function getPokemonByName(pokemonName) {
+    return fetch(`${baseURL}${pokemonName}`)
+        .then(res => res.json())
+        .then(pokemon => ({
+            ...pokemon,
+            sprites: {
+                ...pokemon.sprites,
+                official_artwork: `${baseSpriteURL}${pokemon.id}.png`,
+            },
+        }));
+}
 
+export function capitalize(string) {
+    return `${string[0].toUpperCase()}${string.slice(1)}`;
 }

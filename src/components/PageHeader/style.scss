@@ -1,0 +1,11 @@
+@import "../../pages/variables";
+
+.pageHeader {
+  margin-bottom: 12px;
+  color: $primary-color;
+  font-family: $font-family;
+
+  & .pageHeaderColumn {
+    padding-left: 20px;
+  }
+}

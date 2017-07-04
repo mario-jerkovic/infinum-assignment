@@ -15,12 +15,18 @@ function Root({ children }) {
         <div>
             <AppBar
                 title={
-                    <Link to="/">
+                    <Link
+                        to="/"
+                        className={styles.link}
+                    >
                         Pokédex
                     </Link>
                 }
                 rightElement={
-                    <Link to="/myPokemons">
+                    <Link
+                        to="/myPokemons"
+                        className={styles.link}
+                    >
                         Favorites
                     </Link>
                 }
