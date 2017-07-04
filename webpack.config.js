@@ -14,8 +14,11 @@ const Common = merge([
     {
         entry: {
             vendor: [
+                'whatwg-fetch',
                 'react',
+                'prop-types',
                 'react-dom',
+                'react-router',
             ],
         },
         output: {

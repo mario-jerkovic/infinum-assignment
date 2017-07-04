@@ -1,0 +1,24 @@
+.app-bar {
+  background-color: #ee1515;
+  color: #FFF;
+  width: 100%;
+  height: 64px;
+  z-index: 100;
+  position: fixed;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  font-size: 18px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  overflow: hidden;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+
+  & .left-align {
+    flex: 1;
+    padding: 12px;
+  }
+
+  & .right-align {
+    padding-right: 12px;
+  }
+}

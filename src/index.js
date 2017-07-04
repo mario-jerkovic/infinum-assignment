@@ -1,24 +1,30 @@
+/* eslint-disable no-underscore-dangle, global-require, import/no-extraneous-dependencies */
+import 'whatwg-fetch';
+
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { AppContainer } from 'react-hot-loader';  // eslint-disable-line import/no-extraneous-dependencies
+import { AppContainer } from 'react-hot-loader';
 
-import App from './components/App';
+const MOUNT_NODE = document.getElementById('app');
 
-function render(Component) {
+function render() {
+    const Routes = require('./routes').default;
+
     ReactDOM.render(
         <AppContainer>
-            <Component />
+            <Routes />
         </AppContainer>
-        , document.getElementById('app'));
+        , MOUNT_NODE);
 }
 
 
 if (module.hot) {
-    module.hot.accept('./components/App', () => {
-        const NextApp = require('./components/App').default; // eslint-disable-line global-require
-
-        render(NextApp);
+    module.hot.accept('./routes', () => {
+        setImmediate(() => {
+            ReactDOM.unmountComponentAtNode(MOUNT_NODE);
+            render();
+        });
     });
 }
 
-render(App);
+render();
