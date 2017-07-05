@@ -12,7 +12,7 @@ import {
 
 import styles from './style.scss';
 
-function PokemonCard({ name, sprite, favorite, ...other }) {
+function PokemonCard({ id, name, sprite, favorite, ...other }) {
     return (
         <Card>
             <Link to={`pokemon/${name}`}>
@@ -28,7 +28,7 @@ function PokemonCard({ name, sprite, favorite, ...other }) {
                         role="button"
                         className={`material-icons ${styles.favoriteIcon}`}
                         onClick={() => {
-                            other.handleFavoriteClick(favorite, name);
+                            other.handleFavoriteClick(favorite, { id, name });
                         }}
                     >
                         {favorite ? 'favorite' : 'favorite_border'}
@@ -40,6 +40,7 @@ function PokemonCard({ name, sprite, favorite, ...other }) {
 }
 
 PokemonCard.propTypes = {
+    id: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
     sprite: PropTypes.string.isRequired,
     favorite: PropTypes.bool.isRequired,

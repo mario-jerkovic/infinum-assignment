@@ -18,10 +18,14 @@ PokemonStatsRow.defaultProps = {
 };
 
 PokemonStatsRow.propTypes = {
-    label: PropTypes.string,
+    label: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.node,
+    ]),
     value: PropTypes.oneOfType([
         PropTypes.string,
         PropTypes.number,
+        PropTypes.node,
     ]),
 };
 

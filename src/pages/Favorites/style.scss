@@ -1,0 +1,18 @@
+.favoriteColumn {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  & .pokemonImage {
+    max-width: 40px;
+    max-height: 40px;
+    padding-right: 12px;
+  }
+}
+
+.deleteIcon {
+  cursor: pointer;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}

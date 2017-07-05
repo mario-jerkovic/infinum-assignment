@@ -12,11 +12,11 @@ class PokemonList extends React.PureComponent {
         unsetFavoritePokemon: PropTypes.func.isRequired,
     };
 
-    handleFavoriteClick = (favorite, name) => {
+    handleFavoriteClick = (favorite, pokemonData) => {
         if (favorite) {
-            this.props.unsetFavoritePokemon(name);
+            this.props.unsetFavoritePokemon(pokemonData);
         } else {
-            this.props.setFavoritePokemon(name);
+            this.props.setFavoritePokemon(pokemonData);
         }
     };
 
@@ -29,6 +29,7 @@ class PokemonList extends React.PureComponent {
                 className="col-xs-12 col-sm-4 col-md-4 col-lg-3"
             >
                 <PokemonCard
+                    id={id}
                     name={name}
                     sprite={sprite}
                     favorite={favorite}

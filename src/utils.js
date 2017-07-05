@@ -20,14 +20,28 @@ export function getPokemons({ limit, offset, count }) {
         }));
 }
 
-export function getFavoritePokemons() {
+function getFavoritePokemons() {
     return JSON.parse(sessionStorage.getItem(storageKey)) || [];
 }
 
-export function setFavoritePokemon(pokemonName) {
+export function getFavoritePokemonsWithSprite() {
+    const favoritePokemons = getFavoritePokemons();
+
+    if (!favoritePokemons.length) {
+        return null;
+    }
+
+    return favoritePokemons.map(favoritePokemon => (
+        Object.assign({}, favoritePokemon, {
+            sprite: `${baseSpriteURL}${favoritePokemon.id}.png`,
+        })
+    ));
+}
+
+export function setFavoritePokemon(pokemon) {
     const favoritePokemons = JSON.parse(sessionStorage.getItem(storageKey)) || [];
 
-    favoritePokemons.push(pokemonName);
+    favoritePokemons.push(pokemon);
 
     sessionStorage.setItem(storageKey, JSON.stringify(favoritePokemons));
 }
@@ -35,7 +49,9 @@ export function setFavoritePokemon(pokemonName) {
 export function unsetFavoritePokemon(pokemonName) {
     const favoritePokemons = getFavoritePokemons();
 
-    sessionStorage.setItem(storageKey, JSON.stringify(favoritePokemons.filter(item => item !== pokemonName))); // eslint-disable-line max-len
+    sessionStorage.setItem(storageKey, JSON.stringify(favoritePokemons.filter(favoritePokemon => (
+        favoritePokemon.name !== pokemonName
+    ))));
 }
 
 export function getPokemonsWithFavorites(pokemons) {
@@ -43,7 +59,9 @@ export function getPokemonsWithFavorites(pokemons) {
 
     return pokemons.map(pokemon => ({
         ...pokemon,
-        favorite: favorites.includes(pokemon.name),
+        favorite: !!favorites.find(favoritePokemon => (
+            favoritePokemon.name === pokemon.name
+        )),
     }));
 }
 

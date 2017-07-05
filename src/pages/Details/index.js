@@ -48,7 +48,7 @@ class Details extends React.PureComponent {
         return (
             <div>
                 <PageHeader
-                    title={utils.capitalize(data.name)}
+                    title={`${utils.capitalize(data.name)} #${data.id}`}
                 />
                 <PokemonDetails
                     data={data}
