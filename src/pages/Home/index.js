@@ -25,8 +25,8 @@ class Home extends React.PureComponent {
         this.assignCheckFavoritePokemon();
     };
 
-    unsetFavoritePokemon = (pokemonName) => {
-        utils.unsetFavoritePokemon(pokemonName);
+    unsetFavoritePokemon = ({ name }) => {
+        utils.unsetFavoritePokemon(name);
 
         this.assignCheckFavoritePokemon();
     };
