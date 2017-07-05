@@ -12,14 +12,6 @@ class PokemonList extends React.PureComponent {
         unsetFavoritePokemon: PropTypes.func.isRequired,
     };
 
-    static contextTypes = {
-        router: PropTypes.object.isRequired,
-    };
-
-    handlePokemonClick = (id) => {
-        this.context.router.push(`pokemon/${id}`);
-    };
-
     handleFavoriteClick = (favorite, name) => {
         if (favorite) {
             this.props.unsetFavoritePokemon(name);

@@ -26,9 +26,16 @@ PokemonStatsRow.propTypes = {
 };
 
 export function PokemonStats({ title, children }) {
+    let titleComponent = null;
+
+    if (title) {
+        titleComponent = (
+            <div className={styles.pokemonStatsHeader}>{title}</div>
+        );
+    }
     return (
         <div className={styles.pokemonStatsContainer}>
-            <div className={styles.pokemonStatsHeader}>{title}</div>
+            {titleComponent}
             <ul className={styles.pokemonStats}>
                 {children}
             </ul>

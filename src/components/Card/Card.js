@@ -17,8 +17,4 @@ Card.propTypes = {
     children: PropTypes.node.isRequired,
 };
 
-Card.defaultProps = {
-    onClick: () => {},
-};
-
 export default Card;
